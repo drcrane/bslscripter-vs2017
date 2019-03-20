@@ -108,6 +108,8 @@ UartComm::~UartComm()
 	this->close();
 }
 
+#define PLATFORM_DELAY(millis) std::this_thread::sleep_for(std::chrono::milliseconds(millis))
+
 void UartComm::init(ModeParams* modeParams)
 {
 	// Check if the port is open. If yes, close it before initialize the port.
@@ -140,6 +142,29 @@ void UartComm::init(ModeParams* modeParams)
 
 	// Configure the UART to have 8 bit data format
 	port.set_option(boost::asio::serial_port_base::character_size(8));
+
+	if (modeParams->enInvoke) {
+		PLATFORM_DELAY(15);
+
+		port.set_option(RESETControl(1));
+		port.set_option(TESTControl(0));
+		PLATFORM_DELAY(15);
+
+		port.set_option(TESTControl(1));
+		PLATFORM_DELAY(15);
+
+		port.set_option(TESTControl(0));
+		PLATFORM_DELAY(15);
+
+		port.set_option(TESTControl(1));
+		PLATFORM_DELAY(15);
+
+		port.set_option(RESETControl(0));
+		PLATFORM_DELAY(15);
+
+		port.set_option(TESTControl(0));
+		PLATFORM_DELAY(15);
+	}
 
 	// Execute the invoke sequence for MSP430 devices
 	if (modeParams->family != Family::P4xx)

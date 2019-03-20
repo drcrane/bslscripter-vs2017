@@ -77,6 +77,7 @@ const std::string Interpreter::IP_CLIENT_ARG = "IPClient=";
 const std::string Interpreter::IP_SERVER_ARG = "IPServer=";
 const std::string Interpreter::I2C_ADDRESS = "I2CAddr=";
 const std::string Interpreter::PARITY_ARG = "PARITY";
+const std::string Interpreter::INVOKE_ARG = "INVOKE";
 const std::string Interpreter::CRYPTO_ARG = "CRYPTO";
 const std::string Interpreter::MSPFET1_ARG = "MSPFET";
 const std::string Interpreter::MSPFET2_ARG = "MSP-FET";
@@ -808,6 +809,7 @@ void Interpreter::interpretMode(std::vector<std::string> *params)
 
 	modeParams.crypto = false;
 	modeParams.enParity = false;
+	modeParams.enInvoke = false;
 	modeParams.useMspFet = false;
 	modeParams.disableAutoBaud = false;
 	modeParams.i2cSlaveAddr = 0;
@@ -876,6 +878,10 @@ void Interpreter::interpretMode(std::vector<std::string> *params)
 		if (util->compareString(param, PARITY_ARG))
 		{
 			modeParams.enParity = true;
+		}
+
+		if (util->compareString(param, INVOKE_ARG)) {
+			modeParams.enInvoke = true;
 		}
 
 		//Check the parity

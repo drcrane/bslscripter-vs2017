@@ -104,6 +104,7 @@ struct ModeParams
 	bool crypto;                          // acknowledge if the CryptoBSL is chosen
 	bool f543x;                           // 
 	bool enParity;						  // enable the praity bit in UART transmission for certain devices
+	bool enInvoke;						  // enable invoke sequence on DTR and RTS
 	std::string macAddress;               // MAC address of the MSP432E target bootloader  
 	std::string clientIpAddress;	      // Client IP address for MSP432E target bootloader 
 	std::string serverIpAddress;          // Server IP address chosen by the user

@@ -3,6 +3,7 @@
 *.c	text eol=crlf
 *.h	text eol=crlf
 *.txt	text eol=crlf
+*.md	text eol=crlf
 *.hex	text eol=crlf
 *.rc	text eol=crlf
 *.vcxproj	text eol=crlf

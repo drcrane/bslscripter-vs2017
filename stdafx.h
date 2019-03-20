@@ -82,6 +82,7 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	#define VC_EXTRALEAN
 	#define NOMINMAX
 	#include <windows.h>
+	#include <mmsystem.h>
 	#define OVERRIDE override
 #else
 	#define OVERRIDE

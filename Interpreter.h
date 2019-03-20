@@ -168,6 +168,7 @@ private:
 	static const std::string IP_SERVER_ARG;
 	static const std::string I2C_ADDRESS;
 	static const std::string PARITY_ARG;
+	static const std::string INVOKE_ARG;
 	static const std::string CRYPTO_ARG;
 	static const std::string MSPFET1_ARG;
 	static const std::string MSPFET2_ARG;

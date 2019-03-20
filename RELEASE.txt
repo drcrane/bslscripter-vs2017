@@ -8,3 +8,4 @@ Version  Date          Author              What's New
 3.2.1    Jan/19/2017   Fatmawati Santosa   bug fixes
 3.3.0    Oct/2017      Fatmawati Santosa   Add MSP432E handling
 3.4.0    Apr/2018      Fatmawati Santosa   Add MSP432E USB DFU bootloader
+3.4.1    Mar/2019      Benjamin Green      Add INVOKE to MODE line for RTS/DTR control
