@@ -53,6 +53,7 @@ in your Visual Studio configuration.
 * [How to use Boost in Visual Studio 2010](https://stackoverflow.com/questions/2629421/how-to-use-boost-in-visual-studio-2010)
 * [Invoking b2](https://www.boost.org/doc/libs/1_51_0/doc/html/bbv2/overview.html#bbv2.overview.invocation)
 * [Boost: Getting Started with Windows](https://www.boost.org/doc/libs/1_51_0/more/getting_started/windows.html)
+* [Peabody's CP2101 Invoke Script](https://github.com/gbhug5a/CP2102-with-BSL-Scripter-for-MSP430)
 
 # Setup Directories for Boost Headers
 
