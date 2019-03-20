@@ -1,0 +1,10 @@
+*
+!*.*
+!Makefile
+!*/
+Release/
+Debug/
+.vs/
+*.obj
+*.vcxproj.user
+

@@ -1,0 +1,23 @@
+//
+// MSP432E4xx - I2C Bootloader Example (2st step)
+// From previous script, the Custom I2C Bootloader
+//    is present on the device and will be executed 
+//    when the device is reset.
+//
+// The Custom I2C Bootloder on this example have
+//    the I2C Address of 0x44, therefore the 
+//    I2CAddr=0x44 is called in MODE command
+//
+// Download the blink_app1_MSP-EXP432E401Y.txt that 
+//    will blink the LED D1 on the Launchpad. 
+//    When the application blink_app1_MSP-EXP432E401Y
+//    is executed, pressing the SW1 on the board
+//    will invoke the Custom UART Bootloader in Flash
+//
+// New firmware can be downloaded again. 
+//    Execute the script_3.txt to have the new firmware 
+//    that blinks D2.
+//
+LOG
+MODE E4xx COM188 I2C 400000 I2CAddr=0x44
+RX_DATA_BLOCK_32 blink_app1_MSP-EXP432E401Y.txt

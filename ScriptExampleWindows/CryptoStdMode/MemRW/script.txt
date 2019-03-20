@@ -1,0 +1,22 @@
+//
+//Script example StandardCrypto Mode UART BSL
+//
+//This example write the data to the device
+//The read back of the data done using 
+//reading command (TX_DATA_BLOCK) 
+//
+//The original data file: NVMData.txt
+// 
+LOG
+MODE Crypto FRxx UART COM188
+//Crypto mode BSL version:[00][68][56][b5]
+TX_BSL_VERSION
+MASS_ERASE
+RX_PASSWORD ff_pass.txt
+CHANGE_BAUD_RATE 115200
+// Write NVM
+RX_DATA_BLOCK NVMData.txt
+// Read 16-bit mem
+TX_DATA_BLOCK 0x4400 0xAC00 ReadData.txt
+// Read Large mem
+TX_DATA_BLOCK 0x10000 0x4000 ReadDataLarge.txt

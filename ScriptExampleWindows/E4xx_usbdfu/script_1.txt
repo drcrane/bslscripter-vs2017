@@ -1,0 +1,11 @@
+//
+// MSP432E4xx - USBDFU (1st step)
+// This script runs on the ROM Bootloader USB DFU.
+//    It downloads the boot_usb_flash_MSP_EXP432E401Y.txt
+//    which is flash bootloader of USB DFU.
+// After the download is finished execute the script_2.txt
+//    
+MODE E4xx USB
+RX_DATA_BLOCK_FAST boot_usb_flash_MSP_EXP432E401Y.txt
+REBOOT_RESET
+

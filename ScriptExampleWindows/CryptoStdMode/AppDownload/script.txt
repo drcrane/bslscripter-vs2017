@@ -1,0 +1,22 @@
+//
+//Script example Standard Crypto UART BSL
+//
+//This example write the blink application
+//to the device that supports Crypto BSL
+//
+//Standard Crypto mode supports the normal BSL commands
+//
+//More information about Crypto-BSL
+//please refer to: www.ti.com/lit/slau657
+//
+LOG
+MODE Crypto FRxx UART COM188
+//BSL Version for Standard Crypto BSL:[00][68][56][b5]
+TX_BSL_VERSION
+MASS_ERASE
+RX_PASSWORD ff_pass.txt
+//Send blink application
+RX_DATA_BLOCK App_Example.txt
+//Force reset
+REBOOT_RESET
+//LED should blink

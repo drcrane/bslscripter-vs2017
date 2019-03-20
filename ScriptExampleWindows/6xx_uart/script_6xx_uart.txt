@@ -1,0 +1,18 @@
+//
+//Script example 6xx UART BSL
+//Device tested: MSP430F6459
+//Comm Bridge used: MSP-BSL Rocket
+//
+//Download the blink application
+//through UART BSL
+//
+LOG
+MODE 6xx UART COM188
+//gives the wrong password to
+//mass erase the memory
+RX_PASSWORD .\pass32_wrong.txt
+RX_PASSWORD .\pass32_default.txt
+RX_DATA_BLOCK .\blinkLED_f6459.txt
+CRC_CHECK 0x8000 0x0020 0x4872  
+CRC_CHECK 0xffc6 0x00D0 0xacf7 
+SET_PC 0x8000

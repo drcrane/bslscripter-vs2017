@@ -1,0 +1,18 @@
+//
+// MSP432E4xx - I2C Bootloader Example (1st step)
+//
+// This script invoke the ROM bootloder
+//    and download the Custom I2CBootloader
+//    boot_i2c_flash_MSP_EXP432E401Y.
+//    The slave address is default address 
+//    which is 0x42 for the ROM bootloader.
+//
+// The Custom I2C Bootloder will have the custom
+//    slave address of 0x44.
+//
+// After the download is finished, reset the device 
+//    and execute the script_2.txt
+//
+LOG
+MODE E4xx COM188 I2C 400000
+RX_DATA_BLOCK_32 boot_i2c_flash_MSP_EXP432E401Y.txt

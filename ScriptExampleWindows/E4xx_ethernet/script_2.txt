@@ -1,0 +1,20 @@
+//
+// MSP432E4xx - Ethernet Bootloader Example (2st step)
+//
+// This script invoke the Custom Ethernet bootloder
+//    and download the boot_emac_flash_magicpacket_MSP_EXP432E401Y application
+//
+//    Please insert the correct MAC address of the
+//    MSP432E4xx device,
+//    the IPClient parameter which is the IP that
+//    would be assigned to the MSP432E4xx device,
+//    and the IPServer parameter which is the local
+//    PC where the BSL-Scripter is executed.
+//
+// This application will be invoke the Custom Ethernet bootloader
+//    in flash when the magic packet is sent by the BSL-Scripter
+//    To try this feature, please execute the script_3.txt
+//
+LOG
+MODE E4xx Ethernet MAC=08:00:28:5a:8b:7f IPClient=137.167.191.10 IPServer=137.167.191.9
+RX_DATA_BLOCK_32 boot_emac_flash_magicpacket_MSP_EXP432E401Y.txt

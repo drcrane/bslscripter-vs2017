@@ -1,0 +1,19 @@
+//
+//Script example 543x family UART BSL
+//
+//Download blink led application
+//to 543x family device through uart bsl
+//
+//It was tested using Launchpad BSL 
+//application as the communication bridge
+//
+LOG
+MODE 543x_family UART COM5
+//gives the wrong password to do
+//mass eraseof the memory
+RX_PASSWORD .\pass16_wrong.txt
+RX_PASSWORD .\pass16_default.txt
+RX_DATA_BLOCK .\blinkLED_f5438.txt
+CRC_CHECK 0x5C00 0x0020 0xAF15
+CRC_CHECK 0xffd2 0x00D0 0xC1EA
+SET_PC 0x5c00

@@ -1,0 +1,7 @@
+//
+//Execute the script_3.txt to have the new firmware 
+//    that blinks D2.
+//
+LOG
+MODE E4xx COM188 I2C 400000
+RX_DATA_BLOCK_32 blink_app2_MSP-EXP432E401Y.txt

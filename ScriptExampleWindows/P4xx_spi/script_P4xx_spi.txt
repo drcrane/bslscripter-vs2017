@@ -1,0 +1,22 @@
+//
+//Script example MSP432 SPI BSL
+//
+//Device : MSP432P401R
+//Comm Bridge: MSP-BSL Rocket
+//
+//Download blink application for
+//MSP432 device through SPI BSL
+//
+LOG
+MODE P4xx SPI 250000 COM25 
+//gives wrong password to do
+//mass erase in the memory
+RX_PASSWORD_32 pass256_wrong.txt
+RX_PASSWORD_32 pass256_default.txt
+MASS_ERASE
+//RX_DATA_BLOCK_32 Blink_LED.txt
+RX_DATA_BLOCK_32 Blink_LED.hex
+TX_BSL_VERSION_32
+//TX_DATA_BLOCK_32 0x0000 0x4000 ReadBlock_MSP432P401R.txt
+TX_DATA_BLOCK_32 0x0000 0x4000 ReadBlock_MSP432P401R.hex
+REBOOT_RESET

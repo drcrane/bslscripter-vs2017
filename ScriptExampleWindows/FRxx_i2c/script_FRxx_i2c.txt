@@ -1,0 +1,23 @@
+//
+//Script example FRxx I2C BSL
+//
+//Device tested: MSP430FR69891
+//Comm Bridge used: MSP-BSL Rocket
+//
+//Download blink application through
+//I2C BSL in FRAM device
+//
+LOG
+MODE FRxx I2C 400000 COM188
+//gives wrong password to do mass erase
+RX_PASSWORD pass32_wrong.txt
+//
+//add delay after giving wrong password
+//because the device does not give
+//any response after wrong password applied
+//
+DELAY 2000
+RX_PASSWORD pass32_default.txt
+RX_DATA_BLOCK blinkLED_FR6989.txt
+CRC_CHECK 0x4400 0x0020
+SET_PC 0x4400

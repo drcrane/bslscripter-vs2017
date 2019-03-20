@@ -1,0 +1,19 @@
+//
+// MSP432E4xx - SPI Bootloader Example (2st step)
+// From previous script, the Custom SPIBootloader
+//    is present on the device and will be executed 
+//    when the device is reset.
+//
+// Download the blink_app1_MSP-EXP432E401Y.txt that 
+//    will blink the LED D1 on the Launchpad. 
+//    When the application blink_app1_MSP-EXP432E401Y
+//    is executed, pressing the SW1 on the board
+//    will invoke the Custom SPI Bootloader in Flash
+//
+// New firmware can be downloaded again. 
+//    Execute the script_3.txt to have the new firmware 
+//    that blinks D2.
+//
+LOG
+MODE E4xx COM188 SPI 1000000
+RX_DATA_BLOCK_32 blink_app1_MSP-EXP432E401Y.txt

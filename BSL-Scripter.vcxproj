@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{611B96D4-B5D3-4956-8E94-272636AB49DA}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>BSLScripter</RootNamespace>
+    <ProjectName>BSL-Scripter</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="packages\boost.1.61.0.0\build\native\boost.targets" Condition="Exists('packages\boost.1.61.0.0\build\native\boost.targets')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <NuGetPackageImportStamp>415f9b3f</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Data\boost_1_58_0;C:\Data\Git\msp-bsl-scripter\BSL-Scripter\ThirdParty\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Data\boost_1_58_0;C:\Data\Git\msp-bsl-scripter\BSL-Scripter\ThirdParty\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Data\Git\msp-bsl-scripter\BSL-Scripter\ThirdParty\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\ThirdParty\lib;C:\Data\boost_1_58_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libusb-1.0.lib;hidapi.lib;setupapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>libcmt</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\ThirdParty\lib;C:\Data\boost_1_58_0\stage\lib;lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>hidapi.lib;libusb-1.0.lib;setupapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseCommands.h" />
+    <ClInclude Include="BslE4xxEthernetResponseHandler.h" />
+    <ClInclude Include="BslE4xxResponseHandler.h" />
+    <ClInclude Include="BslResponseHandler.h" />
+    <ClInclude Include="ColorText.h" />
+    <ClInclude Include="Enum.h" />
+    <ClInclude Include="EthernetComm.h" />
+    <ClInclude Include="FactoryCommunication.h" />
+    <ClInclude Include="FactoryTarget.h" />
+    <ClInclude Include="CommInterface.h" />
+    <ClInclude Include="Family16bit.h" />
+    <ClInclude Include="Family32bit.h" />
+    <ClInclude Include="Family32bit_E4xx.h" />
+    <ClInclude Include="Family32bit_E4xxEthernet.h" />
+    <ClInclude Include="Family32bit_E4xxUsbDfu.h" />
+    <ClInclude Include="TargetInterface.h" />
+    <ClInclude Include="Interpreter.h" />
+    <ClInclude Include="DataType.h" />
+    <ClInclude Include="ScripterStream.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TestReset.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="UartComm.h" />
+    <ClInclude Include="UartE4xxComm.h" />
+    <ClInclude Include="UsbComm.h" />
+    <ClInclude Include="UsbDfuComm.h" />
+    <ClInclude Include="Util.h" />
+    <ClInclude Include="Version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaseCommands.cpp" />
+    <ClCompile Include="BslE4xxEthernetResponseHandler.cpp" />
+    <ClCompile Include="BslE4xxResponseHandler.cpp" />
+    <ClCompile Include="BslResponseHandler.cpp" />
+    <ClCompile Include="BSL_Scripter.cpp" />
+    <ClCompile Include="EthernetComm.cpp" />
+    <ClCompile Include="FactoryCommunication.cpp" />
+    <ClCompile Include="FactoryTarget.cpp" />
+    <ClCompile Include="Family16bit.cpp" />
+    <ClCompile Include="Family32bit.cpp" />
+    <ClCompile Include="Family32bit_E4xx.cpp" />
+    <ClCompile Include="Family32bit_E4xxEthernet.cpp" />
+    <ClCompile Include="Family32bit_E4xxUsbDfu.cpp" />
+    <ClCompile Include="Interpreter.cpp" />
+    <ClCompile Include="ScripterStream.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="UartComm.cpp" />
+    <ClCompile Include="UartE4xxComm.cpp" />
+    <ClCompile Include="UsbComm.cpp" />
+    <ClCompile Include="UsbDfuComm.cpp" />
+    <ClCompile Include="Util.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

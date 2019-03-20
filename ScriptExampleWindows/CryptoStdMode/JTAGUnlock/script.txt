@@ -1,0 +1,23 @@
+//
+//Script example Standard Crypto Mode UART BSL
+//
+//This example write the encrypted JTAG-unlock application
+//to the device that supports Crypto BSL
+//The application writes the JTAG Signature with a
+//secure data packet
+//
+//The original image file: JTAGUNLock.txt
+//The encrypted key used: DKEy_0.txt
+//The encrypted image file: JTAGUNLock_Prot_Dkey0_Ver1.txt
+//
+//More information about generating encrypted image file
+//please refer to: www.ti.com/lit/slau657
+//
+LOG
+MODE Crypto FRxx UART COM188
+//Crypto mode BSL version:[00][68][56][b5]
+TX_BSL_VERSION
+//Send the encrypted image file to the Crypto-BSL device
+RX_SECURE_DATA_BLOCK JTAGUNLock_Prot_Dkey0_Ver1.txt
+//Force reset 
+REBOOT_RESET

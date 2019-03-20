@@ -1,0 +1,18 @@
+//
+// MSP432E4xx - Ethernet Bootloader Example (1st step)
+//
+// This script invoke the ROM bootloder
+//    and download the Custom Ethernet Bootloader
+//    Please insert the correct MAC address of the
+//    MSP432E4xx device,
+//    the IPClient parameter which is the IP that
+//    would be assigned to the MSP432E4xx device,
+//    and the IPServer parameter which is the local
+//    PC where the BSL-Scripter is executed
+//
+// After the download is finished, reset the device 
+//    and execute the script_2.txt
+//
+LOG
+MODE E4xx Ethernet MAC=08:00:28:5a:8b:7f IPClient=137.167.191.10 IPServer=137.167.191.9
+RX_DATA_BLOCK_32 boot_emac_flash_MSP_EXP432E401Y.txt

@@ -1,0 +1,10 @@
+BSL-Scripter
+PC host programmer to program the MSP430 and MSP432 devices through Bootloader (BSL).
+
+Version  Date          Author              What's New 
+3.0.0    Aug/07/2015   Fatmawati Santosa   Initial release
+3.1.0    Oct/26/2015   Fatmawati Santosa   Add Crypto BSL command, bug fixes
+3.2.0    Oct/28/2016   Fatmawati Santosa   Add Intel Hex File handling, bug fixes
+3.2.1    Jan/19/2017   Fatmawati Santosa   bug fixes
+3.3.0    Oct/2017      Fatmawati Santosa   Add MSP432E handling
+3.4.0    Apr/2018      Fatmawati Santosa   Add MSP432E USB DFU bootloader

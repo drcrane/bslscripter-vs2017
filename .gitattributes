@@ -1,0 +1,15 @@
+*	text=auto
+*.cpp	text eol=crlf
+*.c	text eol=crlf
+*.h	text eol=crlf
+*.txt	text eol=crlf
+*.hex	text eol=crlf
+*.rc	text eol=crlf
+*.vcxproj	text eol=crlf
+*.sln	text eol=crlf
+*.bat	text eol=crlf
+Makefile	text eol=lf
+*.o	-text
+*.lib	-text
+*.a	-text
+

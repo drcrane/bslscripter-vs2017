@@ -1,0 +1,15 @@
+//
+// MSP432E4xx - USBDFU (2nd step)
+// This script runs USB DFU in Flash that we downloaded
+//     using the script_1.txt previously. On this script
+//     we would like to download the 
+//     boot_flash_app1_MSP_EXP432E401Y.txt
+// This is the application which will be located at
+//     address 0x4000 in program by the USB DFU flash bootlaoder.
+//     The application is a blinking LED for LED1.
+// After the download is finished we should see the blink LED1.
+//    
+MODE E4xx USB
+RX_DATA_BLOCK_FAST boot_flash_app1_MSP_EXP432E401Y.txt
+REBOOT_RESET
+

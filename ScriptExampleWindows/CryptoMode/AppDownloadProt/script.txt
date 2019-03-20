@@ -1,0 +1,23 @@
+//
+//Script example Crypto UART BSL
+//
+//This example write the encrypted blink application
+//to the device that supports Crypto BSL
+//
+//The original image file: App_Example.txt
+//The encrypted key used: DKEy_0.txt
+//The encrypted image file: App_Example_Prot_DKey0_Ver1.txt
+//
+//More information about generating encrypted image file
+//please refer to: www.ti.com/lit/slau657
+//
+LOG
+MODE Crypto FRxx UART COM188
+//Crypto mode BSL version:[00][58][56][b5]
+TX_BSL_VERSION
+MASS_ERASE
+//Send the encrypted image file to the Crypto-BSL device
+RX_SECURE_DATA_BLOCK App_Example_Prot_DKey0_Ver1.txt
+//Force reset 
+REBOOT_RESET
+//LED should blink

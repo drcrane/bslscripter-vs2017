@@ -1,0 +1,29 @@
+//
+//Script example Standard Crypto Mode UART BSL
+//
+//This example write the encrypted data to the device
+//The read back of the data done 
+//reading command (TX_DATA_BLOCK) 
+//
+//The original data file: NVMData.txt
+//The encrypted key used: DKEy_0.txt
+//The encrypted data file: NVMData_Prot_DKey0_V1.txt
+//
+//More information about generating encrypted image file
+//please refer to: www.ti.com/lit/slau657
+// 
+LOG
+MODE Crypto FRxx UART COM188
+//Crypto mode BSL version:[00][68][56][b5]
+TX_BSL_VERSION
+MASS_ERASE
+CHANGE_BAUD_RATE 115200
+// Write NVM with protected data
+RX_SECURE_DATA_BLOCK NVMData_Prot_DKey0_V1.txt
+// Unlock BSL (note that we don't write vectors in previous step)
+// The commands below won't work if Std commands are disabled
+RX_PASSWORD ff_pass.txt
+// Read 16-bit mem
+TX_DATA_BLOCK 0x4400 0xAC00 ReadData.txt
+// Read Large mem
+TX_DATA_BLOCK 0x10000 0x4000 ReadDataLarge.txt

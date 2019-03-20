@@ -1,0 +1,31 @@
+//
+//Script example Crypto Mode UART BSL
+//
+//This example Update the DKey_1 and send encrypted application
+//Then the encrypted blink application based on DKey_1 
+//is downloaded to the device
+//
+//The original key file: DKey_1.txt
+//The encrypted key used: DKey1_Prot_KEK0_Ver1.txt
+//
+//The original image file: App_Example.txt
+//The encrypted data file with the correct (updated) key:
+//    App_Example_Prot_DKey1_Ver1.txt
+//The encrypted data file with the incorrect key:
+//    App_Example_Prot_DKey0_Ver1.txt
+//
+//More information about generating encrypted image file
+//please refer to: www.ti.com/lit/slau657
+//
+// 
+LOG
+MODE Crypto FRxx UART COM188
+//Crypto mode BSL version:[00][58][56][b5]
+TX_BSL_VERSION
+//Update Key
+RX_SECURE_DATA_BLOCK DKey1_Prot_KEK0_Ver1.txt
+//Send application encrypted with DKEY1 (note that DKEY0 should fail)
+RX_SECURE_DATA_BLOCK App_Example_Prot_DKey1_Ver1.txt
+//Force reset
+REBOOT_RESET
+//LED should blink

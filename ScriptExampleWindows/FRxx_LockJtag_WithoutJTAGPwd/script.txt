@@ -1,0 +1,11 @@
+//Script example to lock the JTAG/SBW 
+//without JTAG lock password.
+//
+//Please not: before we program the 
+//JTAG/SBW signature, we need to unlock the BSL.
+//Provide the correct BSL content in pass.txt.
+//
+LOG
+MODE FRxx UART COM188
+RX_PASSWORD pass.txt
+RX_DATA_BLOCK JTAGLock.txt

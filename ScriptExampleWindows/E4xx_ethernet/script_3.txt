@@ -1,0 +1,7 @@
+//
+// This script executed the Custom Ethernet bootloader
+//    when the magic packets are sent
+//
+LOG
+MODE E4xx Ethernet  MAC=08:00:28:5a:8b:7f IPClient=137.167.191.10 IPServer=137.167.191.9
+RX_DATA_BLOCK_32 ../blink_app2_MSP-EXP432E401Y.txt

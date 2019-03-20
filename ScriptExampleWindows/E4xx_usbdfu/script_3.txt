@@ -1,0 +1,15 @@
+//
+// MSP432E4xx - USBDFU (3rd step)
+// After downloading the boot_flash_app1_MSP_EXP432E401Y.txt
+//    in the previous script_2.txt,
+//    everytime the device is reset or power-up, the LED1 
+//    will be executed.
+// To call the USB DFU Flash bootloader, press the S1 on the
+//    board until the LED1 stops blinking.
+//    Run the script_3.txt to download the second blink App
+//    boot_flash_app2_MSP_EXP432E401Y.txt that blinks LED2. 
+//    
+MODE E4xx USB
+RX_DATA_BLOCK_FAST boot_flash_app2_MSP_EXP432E401Y.txt
+REBOOT_RESET
+

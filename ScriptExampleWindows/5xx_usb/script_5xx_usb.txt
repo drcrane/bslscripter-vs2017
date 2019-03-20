@@ -1,0 +1,27 @@
+//
+//Script example 5xx USB BSL
+//Device tested: MSP430F5529
+//
+//Download a blink LED application
+//to the device through the USB BSL
+//
+LOG
+////////////////////////////////////
+//Write RAM USB BSL to the device
+////////////////////////////////////
+MODE 5xx USB
+//gives wrong password to do
+//mass erase in the memory
+RX_PASSWORD pass32_wrong.txt
+RX_PASSWORD pass32_default.txt
+RX_DATA_BLOCK_FAST RAM_BSL_USB.txt
+SET_PC 0x2504
+DELAY 3000
+////////////////////////////////////
+//Start the RAM USB BSL application
+//to download the blink application
+////////////////////////////////////
+MODE 5xx USB
+RX_PASSWORD .\pass32_default.txt
+RX_DATA_BLOCK .\blinkLED_f5529.txt
+SET_PC 0x4400

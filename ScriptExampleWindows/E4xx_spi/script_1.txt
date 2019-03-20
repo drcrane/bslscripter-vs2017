@@ -1,0 +1,12 @@
+//
+// MSP432E4xx - SPIBootloader Example (1st step)
+// This script invoke the ROM bootloder
+//    and download the Custom SPI Bootloader
+//    boot_spi_flash_MSP_EXP432E401Y.txt
+// After the download is finished, reset the device 
+//    and execute the script_2.txt
+//
+
+LOG
+MODE E4xx COM188 SPI 1000000
+RX_DATA_BLOCK_32 boot_spi_flash_MSP_EXP432E401Y.txt
