@@ -73,6 +73,8 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #if defined(_WIN32) || defined(_WIN64)
 
+#define PLATFORM_FLUSH_COMM_PORT(handle) ::PurgeComm(handle, PURGE_RXABORT | PURGE_TXABORT | PURGE_RXCLEAR | PURGE_TXCLEAR)
+
 #else
 #include <unistd.h>     // UNIX standard function definitions
 #include <fcntl.h>      // File control definitions
@@ -89,6 +91,8 @@ struct termios2 {
 	speed_t c_ispeed;
 	speed_t c_ospeed;
 };
+
+#define PLATFORM_FLUSH_COMM_PORT(handle) ::tcflush(handle, TCIOFLUSH)
 #endif
 
 UartComm::UartComm(ModeParams* modeParams, Util * util)
@@ -163,7 +167,14 @@ void UartComm::init(ModeParams* modeParams)
 		PLATFORM_DELAY(15);
 
 		port.set_option(TESTControl(0));
-		PLATFORM_DELAY(15);
+
+		// From here we flush the serial buffer to discard junk characters received between the microcontroller resetting and being stable in bootloader mode
+		// For example MSP430F6736 pulls its Tx line low which this program interprets as a character.
+		// Boost does not provide a standard mechanism to flush the buffer so we have to resort to PurgeComm on Windows and tcflush on Linux (see above).
+
+		PLATFORM_DELAY(500); // Wait for the microcontroller to settle into its bootloader
+
+		PLATFORM_FLUSH_COMM_PORT(port.lowest_layer().native_handle());
 	}
 
 	// Execute the invoke sequence for MSP430 devices
